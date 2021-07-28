@@ -1,0 +1,31 @@
+pragma solidity 0.8.6;
+
+
+contract Sender{
+    
+    function Send(address payable  _recepient) public payable {
+        _recepient.transfer(msg.value);
+        //_recepient.call{value: msg.value}("");
+    }
+}
+
+
+
+contract  Reciever{
+    
+      
+    function RECIEVE() public payable {  }
+    
+     function getBalance() public view returns(uint) {
+         address Recv = 0x03C6FcED478cBbC9a4FAB34eF9f40767739D1Ff7;
+        
+       // return address(this).balance;
+        return Recv.balance;
+        //return msg.sender.balance;
+       
+        }
+
+    
+    
+    
+}

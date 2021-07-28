@@ -1,0 +1,22 @@
+contract trial{
+    
+    struct Student{
+        uint StudentID;
+        string StudentName;
+    }
+    
+    mapping(uint => Student) StudentData;
+    
+    Student NewStudent;
+    function storeStudent(string memory _stdName , uint _stdID) public {
+        NewStudent = Student(_stdID, _stdName);
+        StudentData[_stdID] = NewStudent;
+    }
+    
+    function retriveStudent(uint _stdId) public view returns(Student memory){
+    
+        return StudentData[_stdId];
+        
+    }
+    
+}

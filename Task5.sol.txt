@@ -1,0 +1,42 @@
+pragma solidity 0.8.6;
+
+
+contract Task5{
+    
+     uint public PayTime = 	1625646335;
+     //require(PayTime > block.timestamp);
+    
+     //function deposit() public payable {
+       // _recepient.transfer(msg.value);
+        //_recepient.call{value: msg.value}("");
+       // address x = address(this);
+      //  x.transfer(msg.value);
+      //address(this).send(msg.value);
+    //}
+    
+     function deposit() payable public {
+         // nothing to do!
+     }
+      function getBalance() public view returns (uint256) {
+        return address(this).balance;
+    }
+   
+   
+     function withdrawEthers() public returns (string memory){
+         
+       // address payable Address = address(this);
+       //address addr = address(this);
+       //address payable wallet = payable(addr);
+       address addrSelf = address(msg.sender);
+       address payable walletSelf = payable(addrSelf);
+       
+       if( block.timestamp > PayTime){
+       
+       walletSelf.transfer(address(this).balance);
+       return "Success";
+       }
+       else {
+           return "Failure";
+           }
+    }
+}
